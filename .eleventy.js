@@ -1,8 +1,10 @@
+require('dotenv').config();
+// const fs = require("fs");
 const MarkdownItContainer = require("markdown-it-container"),
 markdownIt = require('markdown-it'),
 markdownItAttrs = require('markdown-it-attrs');
 module.exports = eleventyConfig => {
-  eleventyConfig.addPassthroughCopy("./css");
+  eleventyConfig.addPassthroughCopy("assets/style.css");
  const markdownItOptions = {
     html: true,
     breaks: true,
@@ -11,8 +13,10 @@ module.exports = eleventyConfig => {
 
 const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs).use(MarkdownItContainer,'wrapper');
 eleventyConfig.setLibrary('md', markdownLib);
+// const {
+//   documentToHtmlString
+// } = require('@contentful/rich-text-html-renderer');
   return {
-    markdownTemplateEngine: "njk",
     dir: {
       output: "_site",
       data: "_data"
