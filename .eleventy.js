@@ -14,6 +14,7 @@ const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs).use(Markd
 eleventyConfig.setLibrary('md', markdownLib);
   return {
     dir: {
+      input:"src",
       output: "_site",
       data: "_data"
     }
